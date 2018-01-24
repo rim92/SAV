@@ -1,11 +1,22 @@
 {
-  "name": "appreparation",
-  "version": "0.0.0",
-  "private": true,
+  "name": "sonom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
-  "dependencies": {
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rim92/SAV.git"
+  },
+  "author": "rim methni",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rim92/SAV/issues"
+  },
+  "homepage": "https://github.com/rim92/SAV#readme",
+	"dependencies": {
     "body-parser": "~1.13.2",
     "cookie-parser": "~1.3.5",
     "debug": "~2.2.0",
