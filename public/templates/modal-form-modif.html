@@ -1,0 +1,127 @@
+ 
+<!--<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">-->
+<style>  
+	.modal-dialog{  position: absolute!important;
+top: 50% !important;
+		line-height: inherit !important;
+left: 50% !important;
+transform: translate(-50%, -50%) !important;
+width: 50% !important;
+		
+    }
+	
+	.modal-footer{
+	text-align: left !important;
+	}
+
+	
+	@media screen and (min-width: 600px)  {
+	.modal-dialog{
+		width: 600px !important;
+	
+	}}
+	
+	@media screen and (min-width: 400px)  {
+	table .table{
+		width: 400px !important;
+	
+	}}
+	
+	
+	
+
+</style>
+<div class="modal-header">
+    <h3>Fiche diagnostic </h3>
+</div>
+<table id="my-table">
+<form name="form.userForm" ng-submit="submitUpdateForm(id)" >
+    <div class="modal-body">
+
+		    <div class="col-xs-12">
+		<div class="form-inline">
+        <div class="form-group col-xs-5">
+            <label>Numéro de série</label>
+			  <input  ng-if="fichediag.num_serie == null"  name="num_serie" class="form-control"  ng-model="userForm.num_serie"   >
+			
+            <input  ng-if="fichediag.num_serie !=null"   name="num_serie" class="form-control" ng-model="userForm.num_serie" ng-init="userForm.num_serie =fichediag.num_serie"  >
+			 </div>
+			 <div class="form-group col-xs-5" >
+			 <label>Panne signalée</label>
+            <textarea  ng-if="fichediag.panne_signaler == null"  name="panne_signaler"  ng-model="userForm.panne_signaler"  class="form-control"   ></textarea>
+            <textarea ng-if="fichediag.panne_signaler != null" name="panne_signaler" ng-model="userForm.panne_signaler"  class="form-control"   ng-init="userForm.panne_signaler =fichediag.panne_signaler" ></textarea>
+			
+			
+		</div>
+
+</div>
+		</div>
+		
+			    <div class="col-xs-12">
+		<div class="form-inline">
+			
+        <div class="form-group col-xs-5">
+            <label>Diagnostic</label>
+            <textarea  ng-if="fichediag.diagnostic == null"  name="diagnostic" ng-model="userForm.diagnostic"  class="form-control" ></textarea>
+            <textarea ng-if="fichediag.diagnostic != null" name="diagnostic" ng-model="userForm.diagnostic"  class="form-control" ng-init="userForm.diagnostic =fichediag.diagnostic" ></textarea>
+			
+        </div>
+ <div class="form-group col-xs-5">
+            <label>Garantie </label>
+	 <br>
+              <select class="selectpicker" >
+				 <option>Oui</option>
+				 <option>Non</option>
+	           </select>
+	 
+        </div>
+					</div>
+		</div>
+		
+		
+<table  class="table">
+	<thead class="active"><th>Désignation</th><th>référence</th><th>Qte</th><th>Prix</th><th ng-if="clickedButton">Prix</th></thead>
+		<tbody><tr ng-repeat="piece in pieces"  class="active">
+			<td><input type="text" style="max-width:100px" name="designationpiece[{{$index}}]" ng-model="userForm.designationpiece[$index]" ng-init="userForm.designationpiece[$index]=piece.designation_piece" disabled></td>
+			<td><input type="text"  style="max-width:100px" name="referencepiece[{{$index}}]" ng-model="userForm.referencepiece[$index]" ng-init="userForm.referencepiece[$index]=piece.reference_piece" disabled></td>
+			<td><input type="text"  style="max-width:40px" name="qtepiece[{{$index}}]" ng-model="userForm.qtepiece[$index]" ng-init="userForm.qtepiece[$index]=piece.qte_piece" disabled></td>
+			<td><input type="text"  style="max-width:40px" name="prixpiece[{{$index}}]" ng-model="userForm.prixpiece[$index]" ng-init="userForm.prixpiece[$index]=piece.prix_piece" disabled></td>
+<td><a class="btn btn-danger"  ng-click="remove($index,piece._id)">X</a></td>
+			</tr></tbody>
+	</table>
+		<td>&nbsp; <a class="btn btn-success" style="width:40px !important" ng-click="nbr = nbr + 1;showNbrPieces(nbr,id)">+</a>
+</td>
+
+ <div ng-if="isClicked">
+		<table  ng-repeat="c in nbrnewpieces" class="table">
+		<thead class="active"><th>Désignation</th><th>référence</th><th>Qte</th><th>Etat</th><th ></th></thead><tbody>
+				 <tr class="active">
+					 <td><input type="text" name="designationpiece[{{c-1}}]" style="max-width:100px" ng-model="userForm.designationpiece[c-1]"></td>
+				 <td><input type="text" name="referencepiece[{{c-1}}]" ng-model="userForm.referencepiece[c-1]" style="max-width:100px"></td>
+					 <td><input type="number"  style="max-width:40px" name="qtepiece[{{c-1}}]" ng-model="userForm.qtepiece[c-1]"></td>
+				<td><select name="choix[{{c-1}}]" ng-model="userForm.choix[c-1]" ng-change="changeCountPiece(c-1)" style="max-width:120px" ><option  value="dispo">Dispo</option><option value="Indispo">Indispo</option></select></td>
+			<td ng-if="clickedButton"><input type="number" name="prixpiece[{{c-1}}]" ng-model="userForm.prixpiece[c-1]" style="max-width:55px"></td>
+				 </tr></tbody>
+				 </table>
+			 </div>
+        <div class="col-xs-12">
+		<div class="form-inline">
+		   <div class="form-group col-xs-5">
+            <label>Prix de réparation</label>
+            <input ng-if="fichediag.prix_reparation == null"   class="form-control"  name="prix_reparation" ng-model="userForm.prix_reparation" >
+			  <input  ng-if="fichediag.prix_reparation != null" class="form-control" name="prix_reparation"   ng-init="userForm.prix_reparation =fichediag.prix_reparation" ng-model="userForm.prix_reparation" >
+        </div>
+		<div class="form-group col-xs-5">
+            <label>Remarques / Observation</label>
+			 <textarea  ng-if="fichediag.prix_reparation == null"   ng-model="userForm.observation" name="observation" class="form-control"  ></textarea>
+			 <textarea ng-if="fichediag.observation != null"  ng-init="userForm.observation =fichediag.observation"  ng-model="userForm.observation" name="observation" class="form-control"  ></textarea>
+        </div>
+		</div>
+    </div>
+	</div>
+    <div class="modal-footer">
+        <input type="submit" class="btn btn-primary"  value="Sauvegarder" />
+        <button class="btn btn-warning" ng-click="cancel()">Annuler</button>
+    </div>
+</form>
+	

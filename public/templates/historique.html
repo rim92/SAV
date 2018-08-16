@@ -1,0 +1,92 @@
+<style>li {
+    margin-bottom: 10px;
+}
+
+.button {
+    display: inline-block;
+    color: hsl(40, 100%, 20%);
+    text-decoration: none;
+  
+}
+
+[data-notifications] {
+    position: relative;
+}
+
+[data-notifications]:after {
+    content: attr(data-notifications);
+    position: absolute;
+    background: red;
+    border-radius: 50%;
+    display: inline-block;
+    padding: 0.3em;
+    color: #f2f2f2;
+    top: -3px;
+}
+
+
+
+
+</style>
+
+
+
+
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+<!--    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">-->
+
+<div ng-controller="clientsCtrl">
+
+      <div class="page-content d-flex align-items-stretch"> 
+        <!-- Side Navbar -->
+
+        <div >
+          <!-- Page Header-->
+        
+          <!-- Breadcrumb-->
+         
+          <section class="tables">   
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+                   <div class="card-header d-flex align-items-center">
+					<h2><strong>Nouvelles fiches réparation</strong> </h2>
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table id="my-table" class="table">
+                          <thead>
+                            <tr>
+							 <th>Date Achat</th>	
+							 <th>Dernière réparation</th>	
+                             <th>Panne signalée</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr ng-repeat="a in archives">
+						    <td>{{a.designation}}</td>
+						    <td>{{a.date  | date}}</td>
+						    <td>{{a.panne}}</td>
+							<td><button  class="btn btn-success" ng-click="showForm(fiche._id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Ajouter</button>
+								</td>
+							<td ng-if="fiche.rerepare==null"><strong style="color:green">Aucun</strong></td>
+								<td ng-if="fiche.rerepare==true" ng-click="showArchive()"><a href="" style="color:red;font-weight:bold">Consulter</a></td>
+								
+                            </tr>
+                          </tbody>
+                        </table>
+					 </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        
+        </div>
+      </div>
+    </div>
+    <!-- Javascript files-->
+	  </div>
+  

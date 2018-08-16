@@ -1,0 +1,86 @@
+
+
+    <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button" data-target=".navbar-collapse" data-toggle="collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"> Sonomusic</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+	      <li><a href="/#/fiche">Fiche réparation</a></li>
+          <li><a href="/#/fiches">Liste réparations</a></li>
+		  <li  class="active"><a href="/#/liste_devis">Liste devis</a></li>
+
+          </ul>
+        </div><!-- /.nav-collapse -->
+      </div><!-- /.container -->
+    </div>
+
+<div ng-controller="ficheCtrl">
+
+    <div class="page" style="background-color:white !important">
+
+     
+          <!-- Breadcrumb-->
+         
+          <section >   
+            <div class="container-fluid">
+              <div class="row">
+                <div >
+                  <div class="card">
+                
+                    <div class="card-header d-flex align-items-center">
+				    <h3 class="h4">LISTES DEVIS </h3>
+                    </div>
+                    <div class="card-body">
+                      <div ng-if="loading==false" class="table-responsive">
+                        <table class="table" style="background-color:white !important" datatable="ng" dt-options="vm.dtOptions" >
+                          <thead>
+                            <tr>
+                              <th>Nom</th>
+                              <th>Prénom</th>
+                              <th>Adresse</th>
+                              <th>Tel</th>
+							  <th>Désignation</th>
+                              <th>Date </th>
+                              <th>Frais diagnostic</th>
+							  <th>Etat</th>
+							  <th>Devis</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr ng-repeat="d in devis">
+                              <td>{{d.nom}}</td>
+                              <td>{{d.prenom}}</td>
+                              <td>{{d.adresse}}</td>
+							<td>{{d.tel}}</td>
+						    <td>{{d.designation}}</td>
+						     <td>{{d.date | date :  "dd.MM.y" }}</td>
+						     <td>{{d.frais_diagnostic}}</td>
+							
+							<td><span class="label label-warning" ng-if="fiche.etat=='loading'">En cours de diagnostic</span> <span  ng-if="fiche.etat=='done'" class="label label-success" >Réparé</span> <span class="label label-danger" ng-if="fiche.etat=='non'">Non traité</span></td>
+								
+							<td><a ng-click="showForm(fiche._id)" >voir devis</a></td>
+					
+					
+                            </tr>
+                           
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+               
+        
+              </div>
+            </div>
+          </section>
+         
+        </div>
+      </div>

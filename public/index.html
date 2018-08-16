@@ -1,0 +1,219 @@
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="scotchTodo">
+<head>
+	<!-- META -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+
+	<title>Node/Angular Todo App</title>
+
+	<!-- SCROLLS -->
+<!--	<link rel="stylesheet" href="css/bootstrap.min.css"> load bootstrap -->
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<style>
+		html 					{ overflow-y:scroll; }
+		body 					{ padding-top:50px; font-size: 14px !important;}
+		#todo-list 				{ margin-bottom:30px; }
+		#todo-form 	 			{ margin-bottom:50px; }
+		.form-control-label{font-size: 14px !important;}
+		footer.main-footer{background: black !important;}
+		.btn-primary {
+    color: #fff;
+    background-color: rgba(121, 106, 238, 0.9) !important;
+    border-color: rgba(121, 106, 238, 0.9) !important;
+}
+	</style>
+	
+	
+	
+<!--	    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">-->
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <!-- Fontastic Custom icon font-->
+    <link rel="stylesheet" href="css/fontastic.css">
+    <!-- Google fonts - Poppins -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="css/custom.css">
+	
+<!--
+	
+	<link rel="stylesheet" href="dependencies/bootstrap/css/bootstrap-3.3.4.min.css">
+ <link rel="stylesheet" href="dependencies/font-awesome/css/font-awesome.min.css">
+ <link rel="stylesheet" href="dist/3.3.1-SNAPSHOT/css/ultimate-datatable-3.3.1-SNAPSHOT.css">
+-->
+	
+	
+	
+ 
+<!--<script src="dependencies/angular-js/angular-1.3.16.min.js" type="text/javascript" charset="utf-8"></script>-->
+	
+
+<!--
+
+	
+	<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+	
+	 <script src="dependencies/jquery/jquery_1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+ <script src="dependencies/bootstrap/js/bootstrap-3.3.4.min.js" type="text/javascript" charset="utf-8"></script>
+ 
+ <script src="dependencies/momentjs/momentjs.js" type="text/javascript" charset="utf-8"></script>
+ <script src="dependencies/fileSaver/fileSaver.min.js" type="text/javascript" charset="utf-8"></script>
+ <script src="dist/3.3.1-SNAPSHOT/js/ultimate-datatable-3.3.1-SNAPSHOT.js" type="text/javascript" charset="utf-8"></script>
+	
+	
+-->
+	
+	
+	
+	
+	
+<!--
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.bootstrap.min.css" />
+-->
+		  
+		  <!-- Favicon-->
+    <link rel="shortcut icon" href="img/favicon.ico">
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/md-data-table/2.2.0/md-data-table-style.min.css"/>-->
+	
+<!--   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>-->
+	
+	
+	
+<!--
+	
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js" ></script>
+<script src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js" ></script>
+<script src="https://cdn.datatables.net/responsive/2.2.1/js/responsive.bootstrap.min.js"></script>
+-->
+	
+<!--
+
+	
+    <script src="/vendor/popper.js/umd/popper.min.js"> </script>
+    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="/vendor/chart.js/Chart.min.js"></script>
+    <script src="/vendor/jquery-validation/jquery.validate.min.js"></script>
+
+	
+	
+	
+     Main File
+    <script src="/js/front.js"></script>
+-->
+	
+	
+	<!-- SPELLS -->
+<!--
+	<script src="bower_components/angular/angular.min.js" ></script>
+	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-aria.min.js"></script>
+
+     Angular Material 
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+<script src="bower_components/angular-route/angular-route.min.js"></script>
+	<script src="bower_components/angular-resource/angular-resource.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/angular-material-icons/0.6.0/angular-material-icons.min.js"></script>
+-->
+<!--
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/md-data-table/2.2.0/md-data-table-templates.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/md-data-table/2.2.0/md-data-table.min.js.map"></script>
+-->
+<!--	<script src="https://rawgit.com/iamisti/mdDataTable/master/dist/md-data-table.js"></script>-->
+	<!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script><!-- load angular -->
+<!--   <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.9.0.js"></script>-->
+	
+	
+	
+	
+	
+	
+<!--
+	
+ <script src="dependencies/jquery/jquery_1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+	
+	
+ <script src="dependencies/momentjs/momentjs.js" type="text/javascript" charset="utf-8"></script>
+ <script src="dependencies/fileSaver/fileSaver.min.js" type="text/javascript" charset="utf-8"></script>
+ 
+	
+	
+	
+ <script src="dependencies/bootstrap/js/bootstrap-3.3.4.min.js" type="text/javascript" charset="utf-8"></script>
+	
+	 angular loading
+ <script src="dependencies/angular-js/angular-1.3.16.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="bower_components/angular-route/angular-route.min.js"></script>
+	<script src="bower_components/angular-resource/angular-resource.min.js"></script>
+	<script src="dist/3.3.1-SNAPSHOT/js/ultimate-datatable-3.3.1-SNAPSHOT.js" type="text/javascript" charset="utf-8"></script>
+-->
+	
+	<script src="js/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+<script src="js/angular-datatables.min.js"></script>
+<script src="js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="js/datatables.bootstrap.css">
+<!--
+	
+	<script src="bower_components/angular/angular.min.js" ></script>
+-->
+	
+<link
+                href="https://gitcdn.github.io/angular-bootstrap-toggle/0.1.3/dist/angular-bootstrap-toggle.min.css"
+                rel="stylesheet">
+      
+	<script src="bower_components/angular-route/angular-route.min.js"></script>
+	<script src="bower_components/angular-resource/angular-resource.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.js"></script>
+	<script src="bower_components/ui-bootstrap.js"></script>
+		<script src="bower_components/angular-toggle-switch.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
+	 <link href="https://ziscloud.github.io/angular-bootstrap-toggle/css/angular-bootstrap-toggle.min.css"
+                    rel="stylesheet">            
+    <script src="https://ziscloud.github.io/angular-bootstrap-toggle/js/angular-bootstrap-toggle.min.js"></script>
+	
+	<script src="bower_components/ng-repeat-while/ng-repeat-while.js" ></script>
+	<script src="todos/main.js"></script> <!-- load up our controller -->
+	<script src="todos/todos.js"></script> <!-- load our todo service -->
+		<script src="compte/compteController.js"></script> <!-- load up our controller -->
+			<script src="compte/compteService.js"></script> <!-- load up our service -->
+	<script src="fiche/ficheController.js"></script> <!-- load up our controller -->
+			<script src="fiche/ficheService.js"></script> <!-- load up our service -->
+		<script src="compte/authService.js"></script> <!--  load up our service -->
+		<script src="gestion/clientsController.js"></script> <!-- load up our controller -->
+			<script src="gestion/clientsService.js"></script> <!-- load up our service -->
+	<script src="core.js"></script> <!-- load our main application -->
+
+	
+
+
+</head>
+<!-- SET THE CONTROLLER -->
+<body style="margin: 0;padding: 0; ">
+	<div ng-view></div>
+	
+    <!-- Javascript files-->
+ <!-- Page Footer-->
+          <footer class="main-footer">
+            <div class="container-fluid">
+              <div class="row">
+                
+                <div class="col-sm-6 text-right">
+                  <p>Sonomusic &copy; 2018</p>
+                  <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+                </div>
+              </div>
+            </div>
+          </footer>
+</body>
+</html>

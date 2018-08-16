@@ -1,0 +1,52 @@
+
+    <div class="page login-page" ng-controller="cpController">
+      <div class="container d-flex align-items-center">
+        <div class="form-holder has-shadow">
+          <div class="row">
+            <!-- Logo & Information Panel-->
+            <div class="col-lg-6">
+              <div class="info d-flex align-items-center">
+                <div class="content">
+                  <div class="logo">
+                    <h1>SONOMUSIC</h1>
+                  </div>
+                  <p>Application Service après vente</p>
+                </div>
+              </div>
+            </div>
+            <!-- Form Panel    -->
+            <div class="col-lg-6 bg-white">
+              <div class="form d-flex align-items-center">
+                <div class="content">
+					  <form   id="login-form">
+						  <div ng-if="msgErreur" class="alert alert-danger"><strong>{{msgErreur}}</strong> 
+                          </div>
+                    <div class="form-group">
+							<!--<label ng-if="msgErreur" class="col-sm-4 form-control-label">{{msgErreur}}</label>-->
+					
+						<label class="col-sm-4 form-control-label">Login</label>
+                      <input id="login-username" type="text"     ng-model="formData.username" class="input-material" required>
+<!--
+                      <label for="login-username" class="label-material">User Name</label>
+                    </div>
+-->
+                    <div class="form-group">
+						<br/>
+						<label class="col-sm-4 form-control-label">Mot de passe</label>
+                      <input id="login-password" type="password" ng-model="formData.password"  class="input-material">
+<!--                      <label for="login-password" class="label-material">Password</label>-->
+                    </div><input type="submit"  ng-click="createCompte(formData)" class="btn btn-primary" value="Login"/>
+                    <!-- This should be submit button but I replaced it with <a> for demo purposes-->
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="copyrights text-center">
+        <p>Design by <a href="https://bootstrapious.com/admin-templates" class="external">Bootstrapious</a>
+          <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+        </p>
+      </div>
+    </div>

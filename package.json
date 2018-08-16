@@ -1,34 +1,16 @@
 {
-  "name": "sonom",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
-  "scripts": {
-    "start": "node app.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rim92/SAV.git"
-  },
-  "author": "rim methni",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/rim92/SAV/issues"
-  },
-  "homepage": "https://github.com/rim92/SAV#readme",
-	"dependencies": {
-    "body-parser": "~1.13.2",
-    "cookie-parser": "~1.3.5",
-    "debug": "~2.2.0",
-    "express": "~4.13.1",
-    "express-session": "^1.13.0",
-    "jade": "~1.11.0",
-    "mongoose": "^4.4.7",
-    "morgan": "~1.6.1",
-    "passport": "^0.3.2",
-    "passport-local": "^1.0.0",
-    "passport-local-mongoose": "^4.0.0",
-    "serve-favicon": "~2.3.0",
-    "twig": "^0.8.8"
+  "name": "node-todo",
+  "version": "0.0.1",
+  "description": "Simple todo application.",
+  "main": "server.js",
+  "author": "Scotch",
+  "dependencies": {
+    "angular-sessionstorage": "^1.1.5",
+    "body-parser": "^1.18.2",
+    "express": "^4.10.8",
+    "method-override": "^2.3.10",
+    "mongoose": "4.10.8",
+    "morgan": "^1.9.0",
+    "nodemailer": "^4.6.7"
   }
 }

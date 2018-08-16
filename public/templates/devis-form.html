@@ -1,0 +1,149 @@
+ 
+<!--<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">-->
+<style>  
+	.modal-dialog{  position: absolute!important;
+top: 50% !important;
+		line-height: inherit !important;
+left: 50% !important;
+transform: translate(-50%, -50%) !important;
+width: 50% !important;
+		
+    }
+	
+	.modal-footer{
+	text-align: left !important;
+	}
+
+	
+	@media screen and (min-width: 600px)  {
+	.modal-dialog{
+		width: 600px !important;
+	
+	}}
+	
+	@media screen and (min-width: 400px)  {
+	table .table{
+		width: 400px !important;
+	
+	}}
+	
+	
+	
+
+</style>
+<div class="modal-header">
+    <h3>Devis </h3>
+</div>
+<form name="form.userForm" ng-submit="submitForm(id)" >
+    <div class="modal-body">
+
+		    <div class="col-xs-12">
+		<div class="form-inline">
+        <div class="form-group col-xs-5">
+            <label>Numéro de série</label>
+			  <input    name="num_serie" class="form-control"  ng-model="userForm.num_serie"  >
+			 </div>
+			 <div class="form-group col-xs-5" >
+			 <label>Panne signalée</label>
+            <textarea name="panne_signaler"  ng-model="userForm.panne_signaler"  class="form-control"   ></textarea>
+           
+			
+		</div>
+
+</div>
+		</div>
+		
+			    <div class="col-xs-12">
+		<div class="form-inline">
+			
+        <div class="form-group col-xs-5">
+            <label>Diagnostic</label>
+            <textarea  name="diagnostic" ng-model="userForm.diagnostic"  class="form-control" ></textarea>
+         
+        </div>
+ <div class="form-group col-xs-5">
+            <label>Défaut de Fabrication </label>
+	 <br>
+              <select class="selectpicker" >
+				 <option>Oui</option>
+				 <option>Non</option>
+	           </select>
+	 
+        </div>
+					</div>
+		</div>
+<!--<input type="checkbox"  ng-change="checkStuff()" ng-model="isClicked" value="Pièce(s)" class="checkbox-template"/><label></label>Pièce(s)</label>-->
+<!--
+
+		 <div class="form-group">
+            <label>Pièces </label>
+		
+
+
+       <div >
+		   <div class="form-group">
+            <label>Référence de la (les) pièce(s)</label>
+			<textarea ng-if="fichediag.reference_piece == null"  ng-model="userForm.reference_piece"  name="reference_piece" class="form-control"  ></textarea>
+			        <textarea ng-if="fichediag.reference_piece != null" name="reference_piece" ng-model="userForm.reference_piece"  class="form-control" ng-init="userForm.reference_piece =fichediag.reference_piece" ></textarea>  
+        </div>
+		
+		   <div class="form-group">
+            <label>Prix de la (les) pièces</label>
+			 <textarea ng-if="fichediag.prix_piece == null" ng-model="userForm.prix_piece" name="prix_piece"   class="form-control" ></textarea>
+			    <textarea ng-if="fichediag.prix_piece != null" name="prix_piece" ng-model="userForm.prix_piece"  class="form-control" ng-init="userForm.prix_piece =fichediag.prix_piece" ></textarea>  
+        </div>
+		</div>
+-->
+	<table  class="table">
+	<thead class="active"><th>Désignation</th><th>référence</th><th>Qte</th><th>Etat</th><th ng-if="clickedButton">Prix</th></thead>
+		<tbody><tr class="active">
+			<td><input type="text" style="max-width:100px" name="designation_piece" ng-model="userForm.designation_piece" ></td>
+			<td><input type="text"  style="max-width:100px" name="reference_piece" ng-model="userForm.reference_piece"></td>
+			<td><input type="number"  style="max-width:40px" name="qte_piece" ng-model="userForm.qte_piece"></td>
+			<td><select name="singleSelect" ng-model="data.singleSelect" ng-change="change()" style="max-width:120px" ><option  value="dispo">Dispo</option><option value="Indispo">Indispo</option></select></td>
+			<td ng-if="clickedButton"><input type="number" name="prix_piece" ng-model="userForm.prix_piece" style="max-width:55px"></td>
+<td><a class="btn btn-success" style="width:40px !important" ng-click="count = count + 1;show(count)">+</a>
+</td></tr></tbody>
+	</table>
+<!--
+	<div ng-if="isClicked">
+			 <table  ng-repeat="c in currentcount" class="table">
+					<thead class="active"><th>Désignation</th><th>référence</th><th>Qte</th><th>Etat</th></thead><tbody><tr class="active"><td><input type="text" style="max-width:100px"></td><td><input type="text"  style="max-width:100px">{{currentcount[c]}}</td><td><input type="text"  style="max-width:100px"></td><td><select><option>Disponible</option><option>Non disponible</option></select></td></tr></tbody>
+				 </table>
+			 </div>
+-->
+		
+		
+			<div ng-if="isClicked">
+			 <table  ng-repeat="c in currentcount" class="table">
+					<thead class="active"><th>Désignation</th><th>référence</th><th>Qte</th><th>Etat</th><th ng-if="clickedButton">Prix</th></thead><tbody>
+				 <tr class="active">
+					 <td><input type="text" name="designation{{currentcount[c-1]}}" style="max-width:100px"></td>
+				 <td><input type="text" name="reference_piece{{currentcount[c-1]}}" style="max-width:100px">{{currentcount[c-1]}}</td>
+					 <td><input type="number"  style="max-width:40px" name="qte_piece" ng-model="userForm.qte_piece"></td>
+				<td><select name="singleSelect" ng-model="data.singleSelect" ng-change="change()" style="max-width:120px" ><option  value="dispo">Dispo</option><option value="Indispo">Indispo</option></select></td>
+			<td ng-if="clickedButton"><input type="number" name="prix_piece" ng-model="userForm.prix_piece" style="max-width:55px"></td>
+				 </tr></tbody>
+				 </table>
+			 </div>
+		
+		
+		
+		<div class="col-xs-12">
+		<div class="form-inline">
+		   <div class="form-group col-xs-5">
+            <label>Prix de réparation</label>
+            <input  class="form-control" name="prix_reparation" ng-model="userForm.prix_reparation" >
+        </div>
+		<div class="form-group col-xs-5">
+            <label>Remarques / Observation</label>
+			 <textarea   ng-model="userForm.observation" name="observation" class="form-control"  ></textarea>
+        </div>
+		</div>
+    </div>
+	</div>
+    <div class="modal-footer">
+        <input type="submit" class="btn btn-primary"  value="Envoyer" />
+        <button class="btn btn-warning" ng-click="cancel()">Annuler</button>
+    </div>
+</form>

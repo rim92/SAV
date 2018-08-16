@@ -1,0 +1,127 @@
+<style>li {
+    margin-bottom: 10px;
+}
+
+.button {
+    display: inline-block;
+    color: hsl(40, 100%, 20%);
+    text-decoration: none;
+  
+}
+
+[data-notifications] {
+    position: relative;
+}
+
+[data-notifications]:after {
+    content: attr(data-notifications);
+    position: absolute;
+    background: red;
+    border-radius: 50%;
+    display: inline-block;
+    padding: 0.3em;
+    color: #f2f2f2;
+    top: -3px;
+}
+
+
+
+
+</style>
+
+<div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button" data-target=".navbar-collapse" data-toggle="collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" >Sonomusic</a>
+        </div>
+		  
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+			<li class="active"><a data-notifications="3" class="button" href="#">Nouvelles fiches réparation</a></li>
+            <li><a href="/#/modifier">Réparation en cours</a></li>
+<!--			<li ><a href="/#/devis_rep">  <span class="nav-counter nav-counter-green">4</span>Devis clients</a></li>-->
+			 <li><a data-notifications="10" class="button" href="/#/devis_rep">Devis clients</a></li> 
+			  <li><a href="/#/pieces">Pièces de rechanges</a></li>
+          </ul>
+			 <a style="float:right;padding-top: 15px;padding-bottom: 15px;color:#9d9d9d;text-decoration:none" n href="/#/logout" ng-click="logout()" class="active">Déconnexion</a>
+        </div><!-- /.nav-collapse -->
+      </div><!-- /.container -->
+    </div>
+
+
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+<!--    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">-->
+
+<div ng-controller="clientsCtrl">
+
+      <div class="page-content d-flex align-items-stretch"> 
+        <!-- Side Navbar -->
+
+        <div >
+          <!-- Page Header-->
+        
+          <!-- Breadcrumb-->
+         
+          <section class="tables">   
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+                   <div class="card-header d-flex align-items-center">
+					<h2><strong>Nouvelles fiches réparation</strong> </h2>
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table id="my-table" class="table">
+                          <thead>
+                            <tr>
+							  <th>Désignation</th>
+                              <th>Panne signalée</th>
+							  <th>Fiche de diagnostique</th>
+							  <th>Historique</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr ng-repeat="fiche in fiches">
+						    <td>{{fiche.designation}}</td>
+						    <td>{{fiche.panne}}</td>
+							<td><button  class="btn btn-success" ng-click="showForm(fiche._id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Ajouter</button>
+								</td>
+							<td ng-if="fiche.rerepare==null"><strong style="color:green">Aucun</strong></td>
+								<td ng-if="fiche.rerepare==true" ng-click="showArchiveForm()"><a href="" style="color:red;font-weight:bold">Consulter</a></td>
+								
+                            </tr>
+                          </tbody>
+                        </table>
+					 </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Page Footer-->
+          <footer class="main-footer">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm-6">
+                  <p>Your company &copy; 2017-2019</p>
+                </div>
+                <div class="col-sm-6 text-right">
+                  <p>Design by <a href="https://bootstrapious.com/admin-templates" class="external">Bootstrapious</a></p>
+                  <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+                </div>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <!-- Javascript files-->
+	  </div>
+  

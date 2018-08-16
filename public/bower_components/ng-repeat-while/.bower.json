@@ -1,0 +1,29 @@
+{
+  "name": "ng-repeat-while",
+  "main": "ng-repeat-while.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/ktstowell/ng-repeat-while",
+  "authors": [
+    "Ken Stowell <kstowell@sosacorp.com>"
+  ],
+  "description": "An AngularJS directive that repeats DOM based off of an expression and not data contents.",
+  "keywords": [
+    "angular",
+    "angularjs",
+    "directive",
+    "ng",
+    "ng-repeat",
+    "ng-repeat-while"
+  ],
+  "license": "MIT",
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.1",
+    "commit": "85b34549133c9d428741c614d61d93b17f3e3620"
+  },
+  "_source": "https://github.com/ktstowell/ng-repeat-while.git",
+  "_target": "^0.0.1",
+  "_originalSource": "ng-repeat-while",
+  "_direct": true
+}
