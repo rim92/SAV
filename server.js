@@ -82,8 +82,20 @@ require('./app/routes.js')(app);
 //});
 //}).listen(8080);
 
-
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 // listen (start app with node server.js) ======================================
-app.listen(8080, "192.168.1.9");
-console.log("App listening on port " + port);
+//app.listen(8080, "192.168.134.1");
+//console.log("App listening on port " + port);
+
+
+// Initialize the app.
+  var server = app.listen(process.env.PORT || 8080, function () {
+    var port = server.address().port;
+    console.log("App now running on port", port);
+  });
+});
