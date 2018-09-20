@@ -20,7 +20,7 @@
     "type": "git",
     "url": "git+https://git.heroku.com/hidden-stream-85453.git"
   } , "engines": {
-    "node": "7.4.0",
+    "node": "6.9.4",
     "npm": "4.0.5"
   }
 }
