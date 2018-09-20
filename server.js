@@ -91,7 +91,9 @@ app.use(function(req, res, next) {
 // listen (start app with node server.js) ======================================
 //app.listen(8080, "192.168.134.1");
 //console.log("App listening on port " + port);
-
+app.get('/', function(req, res){
+   res.redirect('/login');
+});
 
 // Initialize the app.
   var server = app.listen(process.env.PORT || 8080, function () {
