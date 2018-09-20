@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-
+var mongodb = require("mongodb");
 // configuration ===============================================================
 mongoose.connect(database.localUrl); 	// Connect to local MongoDB instance. A remoteUrl is also available (modulus.io)
 
@@ -88,15 +88,20 @@ app.use(function(req, res, next) {
   next();
 });
 
-// listen (start app with node server.js) ======================================
-//app.listen(8080, "192.168.134.1");
-//console.log("App listening on port " + port);
-app.get('/', function(req, res){
-   res.redirect('/login');
-});
+// Connect to the database before starting the application server.
+mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
+  if (err) {
+    console.log(err);
+    process.exit(1);
+  }
 
-// Initialize the app.
+  // Save database object from the callback for reuse.
+  db = database;
+  console.log("Database connection ready");
+
+  // Initialize the app.
   var server = app.listen(process.env.PORT || 8080, function () {
     var port = server.address().port;
     console.log("App now running on port", port);
   });
+});
