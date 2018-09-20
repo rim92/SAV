@@ -12,5 +12,13 @@
     "mongoose": "4.10.8",
     "morgan": "^1.9.0",
     "nodemailer": "^4.6.7"
+  }, "devDependencies": {},
+  "scripts": {
+    "start": "node ./bin/www",
+    "postinstall": "script/copy-assets"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://git.heroku.com/hidden-stream-85453.git"
   }
 }
