@@ -14,8 +14,7 @@
     "nodemailer": "^4.6.7"
   }, "devDependencies": {},
   "scripts": {
-    "start": "node ./bin/www",
-    "postinstall": "script/copy-assets"
+    "start": "node ./bin/www"
   },
   "repository": {
     "type": "git",
