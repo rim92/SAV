@@ -87,16 +87,18 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
-
+// Create a database variable outside of the database connection callback to reuse the connection pool in your app.
+var db;
 // Connect to the database before starting the application server.
-mongodb.MongoClient.connect(process.env.MONGODB_URI || "mongodb://rimi:RIMA23379665@ds125482.mlab.com:25482/sav", function (err, database) {
+
+mongodb.MongoClient.connect(process.env.MONGODB_URI || "mongodb://rimi:RIMA23379665@ds125422.mlab.com:25422/sav", function (err, client) {
   if (err) {
     console.log(err);
     process.exit(1);
   }
 
   // Save database object from the callback for reuse.
-  db = database;
+  db = client.db();
   console.log("Database connection ready");
 
   // Initialize the app.
@@ -105,3 +107,4 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI || "mongodb://rimi:RIMA23379
     console.log("App now running on port", port);
   });
 });
+
