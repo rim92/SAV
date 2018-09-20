@@ -94,7 +94,7 @@ app.use(function(req, res, next) {
 
 
 // Initialize the app.
-var port = process.env.PORT || 8000;
-app.listen(port, function() {
-    console.log("App is running on port " + port);
-});
+  var server = app.listen(process.env.PORT || 8080, function () {
+    var port = server.address().port;
+    console.log("App now running on port", port);
+  });
