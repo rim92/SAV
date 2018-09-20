@@ -2,7 +2,7 @@
 var express = require('express');
 var app = express(); 						// create our app w/ express
 var mongoose = require('mongoose'); 				// mongoose for mongodb
-var port = process.env.PORT || 5000; 				// set the port
+				// set the port
 var database = require('./config/database'); 			// load the database config
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
@@ -94,7 +94,7 @@ app.use(function(req, res, next) {
 
 
 // Initialize the app.
-const port = process.env.PORT || 8080;
-app.listen(port, () => {
-  console.log('Express server listening on port', port)
+var port = process.env.PORT || 8000;
+app.listen(port, function() {
+    console.log("App is running on port " + port);
 });
