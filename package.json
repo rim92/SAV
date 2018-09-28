@@ -1,10 +1,6 @@
 {
   "name": "node-todo",
   "version": "0.0.1",
-	"engines": {
-    "node": "7.4.0",
-    "npm": "4.0.5"
-  },
   "description": "Simple todo application.",
   "main": "server.js",
   "author": "Scotch",
@@ -30,7 +26,11 @@
   "repository": {
     "type": "git",
     "url": "git+https://git.heroku.com/hidden-stream-85453.git"
-  } 
+  }, 
+	"engines": {
+    "node": "7.4.0",
+    "npm": "4.0.5"
+  }
 }
 
 
