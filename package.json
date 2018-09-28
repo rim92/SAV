@@ -20,12 +20,11 @@
   }, "devDependencies": {},
   "scripts": {
    "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "npm run build",
 "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://git.heroku.com/hidden-stream-85453.git"
+    "url": "https://github.com/rim92/SAV.git"
   } , "engines": {
     "node": "6.9.4",
     "npm": "4.0.5"
