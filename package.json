@@ -26,8 +26,7 @@
     "type": "git",
     "url": "https://github.com/rim92/SAV.git"
   } , "engines": {
-    "node": "6.9.4",
-    "npm": "4.0.5"
+    "node": "6.9.4"
   }
 }
 
