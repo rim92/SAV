@@ -20,7 +20,8 @@
   }, "devDependencies": {},
   "scripts": {
    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run build && node server.js"
+    "postinstall": "npm run build",
+"start": "node server.js"
   },
   "repository": {
     "type": "git",
