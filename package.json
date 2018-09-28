@@ -20,15 +20,14 @@
   }, "devDependencies": {},
   "scripts": {
    "test": "echo \"Error: no test specified\" && exit 1",
-"start": "node server.js",
-	  "build": "./node_modules/.bin/webpack --config webpack.conf.js"
+    "postinstall": "npm run build",
+"start": "node server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://git.heroku.com/hidden-stream-85453.git"
-  }, 
-	"engines": {
-    "node": "7.4.0",
+  } , "engines": {
+    "node": "6.9.4",
     "npm": "4.0.5"
   }
 }
