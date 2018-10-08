@@ -580,10 +580,18 @@ var url = 'mongodb://rimi:RIMA23379665@ds125422.mlab.com:25422/sav';
     db.close();
 	  
 	  
-	  var server = app.listen(8080,'192.168.1.12', function () {
+	
+	  
+//	  var server = app.listen(8000,'192.168.1.12', function () {
+//    var port = server.address().port;
+//    console.log("App now running on port", port);
+//  });
+	      
+	  var server = app.listen(process.env.PORT || 5000, function () {
     var port = server.address().port;
     console.log("App now running on port", port);
   });
+	  
 	  
   }
 });
